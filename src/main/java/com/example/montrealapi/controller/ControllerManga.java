@@ -22,6 +22,11 @@ public class ControllerManga {
         return mangaService.getAllManga();
     }
 
+    @GetMapping("/{id}")
+    public Manga getMangaById(@PathVariable Integer id){
+        return mangaService.getMangaById(id);
+    }
+
     @PostMapping
     public ResponseEntity createManga(@RequestBody Manga manga){
         mangaService.createManga(manga);

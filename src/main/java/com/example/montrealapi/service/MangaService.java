@@ -21,8 +21,12 @@ public class MangaService {
                 .map(MangaMapper :: mangaToMangaDTO).collect(Collectors.toList());
     }
 
-    public Manga createManga(Manga manga){
-        if(manga == null)
+    public Manga getMangaById(Integer id){
+        return mangaDAO.getMangaById(id);
+    }
+
+    public Manga createManga(Manga manga) {
+        if (manga == null)
             return null;
 
         return mangaDAO.save(manga);
