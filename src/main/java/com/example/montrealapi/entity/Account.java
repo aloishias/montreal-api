@@ -1,5 +1,6 @@
 package com.example.montrealapi.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -19,6 +20,7 @@ public class Account implements Serializable {
     private String accountLogin;
     private String accountPassword;
     @OneToMany(mappedBy="account")
+    @JsonIgnore
     private Set<Manga> mangas;
 
 }
