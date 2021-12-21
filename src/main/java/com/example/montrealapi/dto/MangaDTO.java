@@ -1,6 +1,5 @@
 package com.example.montrealapi.dto;
 
-import com.example.montrealapi.entity.Account;
 import lombok.Data;
 
 @Data
