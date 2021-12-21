@@ -37,7 +37,7 @@ public class MangaService {
         return mangaDAO.save(manga);
     }
 
-    public void deleteManga(Manga manga){
-        mangaDAO.delete(manga);
+    public void deleteMangaById(Integer id){
+        mangaDAO.deleteMangaById(id);
     }
 }

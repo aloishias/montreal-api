@@ -38,4 +38,10 @@ public class ControllerManga {
         return mangaService.getMangaByAccountId(id);
     }
 
+    @DeleteMapping("/{id}")
+    public ResponseEntity deleteMangaById(@PathVariable Integer id){
+        mangaService.deleteMangaById(id);
+        return ResponseEntity.ok(HttpStatus.resolve(204));
+    }
+
 }
