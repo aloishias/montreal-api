@@ -25,6 +25,11 @@ public class MangaService {
         return mangaDAO.getMangaById(id);
     }
 
+    public List<MangaDTO> getMangaByAccountId(Integer id){
+        return mangaDAO.getMangaByAccountId(id).stream()
+                .map(MangaMapper ::mangaToMangaDTO).collect(Collectors.toList());
+    }
+
     public Manga createManga(Manga manga) {
         if (manga == null)
             return null;

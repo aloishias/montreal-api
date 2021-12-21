@@ -33,4 +33,9 @@ public class ControllerManga {
         return ResponseEntity.ok(HttpStatus.CREATED);
     }
 
+    @GetMapping("/byAccount/{id}")
+    public List<MangaDTO> getMangaByAccountId(@PathVariable Integer id){
+        return mangaService.getMangaByAccountId(id);
+    }
+
 }
