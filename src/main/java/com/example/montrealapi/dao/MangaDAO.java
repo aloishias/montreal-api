@@ -10,8 +10,6 @@ import java.util.List;
 
 public interface MangaDAO extends JpaRepository<Manga, Integer> {
 
-    List<Manga> findAll();
-
     @Query(value = "select * " +
             "from manga m " +
             "where m.manga_id = ?1 ; ",

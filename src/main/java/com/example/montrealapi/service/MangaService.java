@@ -16,11 +16,6 @@ public class MangaService {
     @Autowired
     MangaDAO mangaDAO;
 
-    public List<MangaDTO> getAllManga(){
-        return mangaDAO.findAll().stream()
-                .map(MangaMapper :: mangaToMangaDTO).collect(Collectors.toList());
-    }
-
     public Manga getMangaById(Integer id){
         return mangaDAO.getMangaById(id);
     }

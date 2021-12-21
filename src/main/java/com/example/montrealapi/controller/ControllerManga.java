@@ -17,11 +17,6 @@ public class ControllerManga {
     @Autowired
     MangaService mangaService;
 
-    @GetMapping
-    public List<MangaDTO> getAllManga() {
-        return mangaService.getAllManga();
-    }
-
     @GetMapping("/{id}")
     public Manga getMangaById(@PathVariable Integer id){
         return mangaService.getMangaById(id);
