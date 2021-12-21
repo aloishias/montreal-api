@@ -1,23 +1,14 @@
-package com.example.montrealapi.DTO;
+package com.example.montrealapi.dto;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
-import javax.persistence.*;
-
-@Entity
-@Table(name = "manga")
-@Getter
-@Setter
+@Data
 public class MangaDTO {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
-
-    private String title;
-    private String author;
-    private String linkImage;
-    private Integer number;
+    private Integer mangaId;
+    private String mangaTitle;
+    private String mangaAuthor;
+    private String mangaImageLink;
+    private Integer mangaNumber;
 
 }

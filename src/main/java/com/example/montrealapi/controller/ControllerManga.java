@@ -1,38 +1,31 @@
 package com.example.montrealapi.controller;
 
-import com.example.montrealapi.DAO.MangaDAO;
-import com.example.montrealapi.DTO.MangaDTO;
+import com.example.montrealapi.dto.MangaDTO;
+import com.example.montrealapi.entity.Manga;
+import com.example.montrealapi.service.MangaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
+@RequestMapping("/mangas")
 public class ControllerManga {
 
     @Autowired
-    private MangaDAO mangaDAO;
+    MangaService mangaService;
 
-    @GetMapping("/Marco")
-    public String getMarco(){
-        return "Polo";
+    @GetMapping
+    public List<MangaDTO> getAllManga() {
+        return mangaService.getAllManga();
     }
 
-    @GetMapping("/mangas")
-    public List<MangaDTO> findAll(Model model) {
-        List<MangaDTO> listManga = mangaDAO.findAll();
-        return listManga;
+    @PostMapping
+    public ResponseEntity createManga(@RequestBody Manga manga){
+        mangaService.createManga(manga);
+        return ResponseEntity.ok(HttpStatus.CREATED);
     }
 
-    @PostMapping("/manga")
-    public ResponseEntity createManga(@RequestBody MangaDTO mangaDTO){
-        mangaDAO.save(mangaDTO);
-        return ResponseEntity.ok(HttpStatus.OK);
-    }
 }
