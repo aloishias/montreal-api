@@ -16,8 +16,8 @@ public class MangaService {
     @Autowired
     MangaDAO mangaDAO;
 
-    public Manga getMangaById(Integer id){
-        return mangaDAO.getMangaById(id);
+    public MangaDTO getMangaById(Integer id){
+        return MangaMapper.mangaToMangaDTO(mangaDAO.getMangaById(id));
     }
 
     public List<MangaDTO> getMangaByAccountId(Integer id){

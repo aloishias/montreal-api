@@ -18,7 +18,7 @@ public class ControllerManga {
     MangaService mangaService;
 
     @GetMapping("/{id}")
-    public Manga getMangaById(@PathVariable Integer id){
+    public MangaDTO getMangaById(@PathVariable Integer id){
         return mangaService.getMangaById(id);
     }
 
