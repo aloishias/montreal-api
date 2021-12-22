@@ -1,8 +1,10 @@
 package com.example.montrealapi;
 
+import com.example.montrealapi.dto.AccountDTO;
 import com.example.montrealapi.dto.MangaDTO;
 import com.example.montrealapi.dto.MangaInsertionDTO;
 import com.example.montrealapi.entity.Manga;
+import com.example.montrealapi.service.AccountService;
 import com.example.montrealapi.service.MangaService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +17,9 @@ class MontrealApiApplicationTests {
 
 	@Autowired
 	MangaService ms;
+
+	@Autowired
+	AccountService as;
 
 	@Test
 	void contextLoads() {
@@ -30,6 +35,34 @@ class MontrealApiApplicationTests {
 		expected.setMangaTitle("Dragon Ball");
 
 		MangaDTO result = ms.getMangaById(1);
+
+		assertEquals(expected, result);
+	}
+
+	@Test
+	public void testGetAccountById(){
+		AccountDTO expected = new AccountDTO();
+		expected.setAccountLastName("Hias");
+		expected.setAccountId(1);
+		expected.setAccountFirstName("Aloïs");
+		expected.setAccountLogin("root");
+		expected.setAccountPassword("root");
+
+		AccountDTO result = as.getAccountById(1);
+
+		assertEquals(expected, result);
+	}
+
+	@Test
+	public void testGetAccountByLoginPassword(){
+		AccountDTO expected = new AccountDTO();
+		expected.setAccountLastName("Hias");
+		expected.setAccountId(1);
+		expected.setAccountFirstName("Aloïs");
+		expected.setAccountLogin("root");
+		expected.setAccountPassword("root");
+
+		AccountDTO result = as.getAccountByLoginPassword("root", "root");
 
 		assertEquals(expected, result);
 	}

@@ -1,7 +1,9 @@
 package com.example.montrealapi.service;
 
 import com.example.montrealapi.dao.AccountDAO;
+import com.example.montrealapi.dto.AccountDTO;
 import com.example.montrealapi.entity.Account;
+import com.example.montrealapi.mapper.AccountMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,12 +13,12 @@ public class AccountService {
     @Autowired
     AccountDAO accountDAO;
 
-    public Account getAccountById(Integer id){
-        return accountDAO.getAccountById(id);
+    public AccountDTO getAccountById(Integer id){
+        return AccountMapper.accountToAccountDTO(accountDAO.getAccountById(id));
     }
 
-    public Account getAccountByLoginPassword(String login, String password){
-        return accountDAO.getAccountByLoginPassword(login, password);
+    public AccountDTO getAccountByLoginPassword(String login, String password){
+        return AccountMapper.accountToAccountDTO(accountDAO.getAccountByLoginPassword(login, password));
     }
 
 }

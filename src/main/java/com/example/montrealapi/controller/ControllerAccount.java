@@ -1,6 +1,6 @@
 package com.example.montrealapi.controller;
 
-import com.example.montrealapi.entity.Account;
+import com.example.montrealapi.dto.AccountDTO;
 import com.example.montrealapi.service.AccountService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,12 +16,13 @@ public class ControllerAccount {
     AccountService accountService;
 
     @GetMapping("/{id}")
-    public Account getAccountById(@PathVariable Integer id){
+    public AccountDTO getAccountById(@PathVariable Integer id){
         return accountService.getAccountById(id);
     }
 
     @GetMapping("/{login}/{password}")
-    public Account getAccountByLoginPassword(@PathVariable String login, String password){
+    public AccountDTO getAccountByLoginPassword(@PathVariable String login, String password){
         return accountService.getAccountByLoginPassword(login, password);
     }
+
 }
