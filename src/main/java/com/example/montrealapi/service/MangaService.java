@@ -2,6 +2,7 @@ package com.example.montrealapi.service;
 
 import com.example.montrealapi.dao.MangaDAO;
 import com.example.montrealapi.dto.MangaDTO;
+import com.example.montrealapi.dto.MangaInsertionDTO;
 import com.example.montrealapi.entity.Manga;
 import com.example.montrealapi.mapper.MangaMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,11 +26,13 @@ public class MangaService {
                 .map(MangaMapper ::mangaToMangaDTO).collect(Collectors.toList());
     }
 
-    public Manga createManga(Manga manga) {
-        if (manga == null)
-            return null;
-
-        return mangaDAO.save(manga);
+    public void createManga(MangaInsertionDTO mangaInsertionDTO) {
+        if (mangaInsertionDTO != null)
+            mangaDAO.insertManga(mangaInsertionDTO.getMangaAuthor(),
+                    mangaInsertionDTO.getMangaImageLink(),
+                    mangaInsertionDTO.getMangaNumber(),
+                    mangaInsertionDTO.getMangaTitle(),
+                    mangaInsertionDTO.getAccountId());
     }
 
     public void deleteMangaById(Integer id){

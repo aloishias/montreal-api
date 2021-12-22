@@ -1,7 +1,7 @@
 package com.example.montrealapi.controller;
 
 import com.example.montrealapi.dto.MangaDTO;
-import com.example.montrealapi.entity.Manga;
+import com.example.montrealapi.dto.MangaInsertionDTO;
 import com.example.montrealapi.service.MangaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -23,9 +23,9 @@ public class ControllerManga {
     }
 
     @PostMapping
-    public ResponseEntity createManga(@RequestBody Manga manga){
-        mangaService.createManga(manga);
-        return ResponseEntity.ok(HttpStatus.CREATED);
+    public ResponseEntity createManga(@RequestBody MangaInsertionDTO mangaInsertionDTO){
+        mangaService.createManga(mangaInsertionDTO);
+        return ResponseEntity.ok(HttpStatus.resolve(201));
     }
 
     @GetMapping("/byAccount/{id}")

@@ -1,6 +1,7 @@
 package com.example.montrealapi;
 
 import com.example.montrealapi.dto.MangaDTO;
+import com.example.montrealapi.dto.MangaInsertionDTO;
 import com.example.montrealapi.entity.Manga;
 import com.example.montrealapi.service.MangaService;
 import org.junit.jupiter.api.Test;
@@ -20,7 +21,7 @@ class MontrealApiApplicationTests {
 	}
 
 	@Test
-	public void testGetMangaByIdRoute(){
+	public void testGetMangaById(){
 		MangaDTO expected = new MangaDTO();
 		expected.setMangaId(1);
 		expected.setMangaAuthor("Akira Toriyama");
