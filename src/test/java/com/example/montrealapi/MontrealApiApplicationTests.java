@@ -2,8 +2,6 @@ package com.example.montrealapi;
 
 import com.example.montrealapi.dto.AccountDTO;
 import com.example.montrealapi.dto.MangaDTO;
-import com.example.montrealapi.dto.MangaInsertionDTO;
-import com.example.montrealapi.entity.Manga;
 import com.example.montrealapi.service.AccountService;
 import com.example.montrealapi.service.MangaService;
 import org.junit.jupiter.api.Test;
