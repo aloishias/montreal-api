@@ -8,6 +8,9 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @SpringBootTest
@@ -35,6 +38,23 @@ class MontrealApiApplicationTests {
 		MangaDTO result = ms.getMangaById(1);
 
 		assertEquals(expected, result);
+	}
+
+	@Test
+	public void testGetMangaByAccountId(){
+		List<MangaDTO> expecteds = new ArrayList<>();
+		MangaDTO expected = new MangaDTO();
+		expected.setMangaId(3);
+		expected.setMangaAuthor("Hirohiko Araki");
+		expected.setMangaImageLink("https://images-na.ssl-images-amazon.com/images/I/8118ISrjhxL.jpg");
+		expected.setMangaNumber(1);
+		expected.setMangaTitle("Jojo's Bizar Adventure");
+
+		expecteds.add(expected);
+
+		List<MangaDTO> results = ms.getMangaByAccountId(2);
+
+		assertEquals(expecteds, results);
 	}
 
 	@Test
